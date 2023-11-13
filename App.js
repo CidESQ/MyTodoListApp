@@ -55,7 +55,7 @@ export default function App() {
 
         <TextInput style={styles.input} placeholder={'Write a task'} value={task} onChangeText={text => setTask(text)}/>
 
-        <TouchableOpacity onPress={() => handleAddTask} >
+        <TouchableOpacity onPress={() => handleAddTask()} >
           <View style={styles.addWrapper}>
             <Text style={styles.addText}>+</Text>
           </View>
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   input:{
     paddingVertical: 15,
@@ -103,12 +103,12 @@ const styles = StyleSheet.create({
   addWrapper:{
     width: 50,
     height: 50,
-    backgroundColor: "#acd9b2",
+    backgroundColor: "#C3E4C7",
     borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#fff',
-    borderWidth: 1,
+    borderColor: '#acd9b2',
+    borderWidth: 2,
 
   },
   addText:{
