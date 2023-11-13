@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView } from 'react-native';
 import React, { useState } from 'react'
 import Task from './components/Task'
 
@@ -9,38 +8,45 @@ export default function App() {
   const [taskItems, setTaskItems] = useState([]);
 
   const handleAddTask = () => {
-    console.log("Holaa");
     Keyboard.dismiss();
     setTaskItems([...taskItems, task]);
-    setTask(null)
+    setTask(null);
   }
 
   const completeTask = (index) => {
     let itemsCopy = [...taskItems];
-    itemsCopy.splice(index,1);
+    itemsCopy.splice(index, 1);
     setTaskItems(itemsCopy);
   }
 
   return (
     <View style={styles.container}>
 
-      {/* Today's Tasks */}
-      <View style={styles.tasksWrapper}>
-        <Text style={styles.sectionTitle}>
-          Today's Tasks
-        </Text>
-        <View style={styles.items}>
-          {
-            taskItems.map((item, index) => {
-              return(
-                <TouchableOpacity  key={index} onPress={completeTask(index)}>
-                  <Task text={text}/>
-                </TouchableOpacity>
-              )
-            })
-          }
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1
+        }}
+        keyboardShouldPersistTaps='handled'
+      >
+
+        {/* Today's Tasks */}
+        <View style={styles.tasksWrapper}>
+          <Text style={styles.sectionTitle}>
+            Today's Tasks
+          </Text>
+          <View style={styles.items}>
+            {
+              taskItems.map((item, index) => {
+                return(
+                  <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+                    <Task text={item}/>
+                  </TouchableOpacity>
+                );
+              })
+            }
+          </View>
         </View>
-      </View>
+      </ScrollView>
 
       {/* Write a task section */}
       <KeyboardAvoidingView
