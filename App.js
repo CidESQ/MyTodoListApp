@@ -29,7 +29,7 @@ export default function App() {
         keyboardShouldPersistTaps='handled'
       >
 
-        {/* Today's Tasks */}
+        {/* Mostrar las tareas */}
         <View style={styles.tasksWrapper}>
           <Text style={styles.sectionTitle}>
             Today's Tasks
@@ -48,7 +48,7 @@ export default function App() {
         </View>
       </ScrollView>
 
-      {/* Write a task section */}
+      {/* Escribir una nueva tarea*/}
       <KeyboardAvoidingView
        behavior={Platform.OS === "ios" ? "padding" : "height" }
        style={styles.writeTaskWrapper}>
@@ -69,7 +69,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'papayawhip',
+    backgroundColor: '#604848',
   },
   tasksWrapper: {
     paddingTop: 80,
@@ -94,25 +94,25 @@ const styles = StyleSheet.create({
   input:{
     paddingVertical: 15,
     paddingHorizontal: 15,
-    backgroundColor: "#C3E4C7",
+    backgroundColor: "#789048",
     borderRadius: 60,
-    borderColor: '#acd9b2',
+    borderColor: '#607848',
     borderWidth: 2,
     width: 250
   },
   addWrapper:{
     width: 50,
     height: 50,
-    backgroundColor: "#C3E4C7",
+    backgroundColor: "#789048",
     borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#acd9b2',
+    borderColor: '#607848',
     borderWidth: 2,
 
   },
   addText:{
     fontSize: 30,
-    color: "#B0B0B0"
+    color: "#604848"
   }
 });
